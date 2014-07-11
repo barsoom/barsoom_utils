@@ -9,8 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Tomas Skogberg"]
   spec.email         = ["tomas.skogberg@gmail.com"]
   spec.summary       = %q{Various helpful utils}
-  spec.description   = %q{Various helpful utils like, helpers, spec_helpers, lib, ..}
-  spec.homepage      = "http://www.barsoom.se"
+  spec.homepage      = "http://barsoom.se"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
