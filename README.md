@@ -41,7 +41,7 @@ Running tests:
 
 By [Barsoom](http://barsoom.se) under the MIT license:
 
-Copyright (c) 2012 Barsoom AB
+Copyright (c) 2014 Barsoom AB
 
 MIT License
 
