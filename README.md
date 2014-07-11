@@ -21,7 +21,7 @@ You need to explicitly require each class.
 
 List of utils:
 
-- require 'barsoom_utils/exception_notifier' - Notify devs about an exception without necessarily letting it appear to the user as a 500 error.
+    require 'barsoom_utils/exception_notifier' #  Notify devs about an exception without necessarily letting it appear to the user as a 500 error.
 
 ## Developing
 
