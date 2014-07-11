@@ -23,6 +23,12 @@ List of utils:
 
 - require 'barsoom_utils/exception_notifier' - Notify devs about an exception without necessarily letting it appear to the user as a 500 error.
 
+## Developing
+
+Running tests:
+
+    rake
+
 ## Contributing
 
 1. Fork it ( https://github.com/barsoom/barsoom_utils/fork )
