@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = BarsoomUtils::VERSION
   spec.authors       = ["Tomas Skogberg"]
   spec.email         = ["tomas.skogberg@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{Various helpful utils}
+  spec.description   = %q{Various helpful utils like, helpers, spec_helpers, lib, ..}
+  spec.homepage      = "http://www.barsoom.se"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
