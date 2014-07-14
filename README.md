@@ -17,7 +17,8 @@ And then execute:
 
 ## Usage
 
-You need to explicitly require each class.
+You need to explicitly require each class you want to use.
+Also note that we use BarsoomUtils as namespace.
 
 List of utils:
 
