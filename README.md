@@ -23,6 +23,7 @@ Also note that we use BarsoomUtils as namespace.
 List of utils:
 
     require 'barsoom_utils/exception_notifier' #  Notify devs about an exception without necessarily letting it appear to the user as a 500 error.
+    require 'barsoom_utils/spec/debug_helpers' # Add show_page helper for capybara feature specs
 
 ## Developing
 

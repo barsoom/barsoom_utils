@@ -2,11 +2,16 @@ PATH
   remote: .
   specs:
     barsoom_utils (0.0.1)
+      lolcat
 
 GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.2.5)
+    lolcat (42.1.0)
+      paint (~> 0.8.3)
+      trollop (~> 1.16.2)
+    paint (0.8.7)
     rake (10.3.2)
     rspec (3.0.0)
       rspec-core (~> 3.0.0)
@@ -20,6 +25,7 @@ GEM
     rspec-mocks (3.0.2)
       rspec-support (~> 3.0.0)
     rspec-support (3.0.2)
+    trollop (1.16.2)
 
 PLATFORMS
   ruby
