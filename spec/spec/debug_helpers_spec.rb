@@ -1,7 +1,7 @@
 require "spec_helper"
 require "barsoom_utils/spec/debug_helpers"
 
-describe DebugHelpers do
+describe BarsoomUtils::Spec::DebugHelpers do
   before { module Rails; end }
 
   let(:page) { double(:page, source: "wow such html") }
@@ -18,7 +18,7 @@ describe DebugHelpers do
   end
 
   class HelperTestClass
-    include DebugHelpers
+    include BarsoomUtils::Spec::DebugHelpers
     attr_accessor :page
 
     def initialize(page)
