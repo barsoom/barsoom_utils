@@ -11,6 +11,14 @@ describe BarsoomUtils::ExceptionNotifier, ".notify" do
     expect(Honeybadger).to receive(:notify).with(ex)
     BarsoomUtils::ExceptionNotifier.notify(ex)
   end
+
+  it "complains if given a non-exception" do
+    expect(Honeybadger).not_to receive(:notify)
+
+    expect {
+      BarsoomUtils::ExceptionNotifier.notify(foo: "bar")
+    }.to raise_error(/Expected an exception but got:.*foo.*bar/)
+  end
 end
 
 describe BarsoomUtils::ExceptionNotifier, ".message" do
@@ -19,7 +27,6 @@ describe BarsoomUtils::ExceptionNotifier, ".message" do
   end
 
   it "passes a message to Honeybadger" do
-
     expect(Honeybadger).to receive(:notify).with(
       error_class: "Boom!",
       error_message: "(no message)",
