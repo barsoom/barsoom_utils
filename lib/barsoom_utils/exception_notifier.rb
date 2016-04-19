@@ -3,11 +3,15 @@
 
 module BarsoomUtils
   class ExceptionNotifier
-    def self.notify(exception)
+    def self.notify(exception, context: {})
       # Inelegant workaround for the fact that we've confused this method with .message at least once.
       # TODO: Fold them into a single method?
       unless exception.is_a?(Exception)
         raise "Expected an exception but got: #{exception.inspect}"
+      end
+
+      if context.any?
+        Honeybadger.context(context)
       end
 
       Honeybadger.notify(exception)

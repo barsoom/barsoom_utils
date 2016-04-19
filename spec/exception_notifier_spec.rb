@@ -12,6 +12,13 @@ describe BarsoomUtils::ExceptionNotifier, ".notify" do
     BarsoomUtils::ExceptionNotifier.notify(ex)
   end
 
+  it "can pass context info as well" do
+    ex = StandardError.new("boom")
+    expect(Honeybadger).to receive(:context).with(foo: "bar")
+    expect(Honeybadger).to receive(:notify).with(ex)
+    BarsoomUtils::ExceptionNotifier.notify(ex, context: { foo: "bar" })
+  end
+
   it "complains if given a non-exception" do
     expect(Honeybadger).not_to receive(:notify)
 
