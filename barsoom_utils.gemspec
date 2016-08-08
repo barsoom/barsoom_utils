@@ -22,4 +22,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
 
   spec.add_runtime_dependency "lolcat"
+  spec.add_runtime_dependency "attr_extras"
+  spec.add_runtime_dependency "redis"
 end

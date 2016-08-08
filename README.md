@@ -9,7 +9,7 @@ source since it might have some value for others.
 
 Add this line to your application's Gemfile:
 
-    gem 'barsoom_utils', github: 'barsoom/barsoom_utils'
+    gem "barsoom_utils", github: "barsoom/barsoom_utils"
 
 And then execute:
 
@@ -22,8 +22,9 @@ Also note that we use BarsoomUtils as namespace.
 
 List of utils:
 
-    require 'barsoom_utils/exception_notifier' #  Notify devs about an exception without necessarily letting it appear to the user as a 500 error.
-    require 'barsoom_utils/spec/debug_helpers' #  Add show_page helper for capybara feature specs
+    require "barsoom_utils/exception_notifier" #  Notify devs about an exception without necessarily letting it appear to the user as a 500 error.
+    require "barsoom_utils/spec/debug_helpers" #  Add show_page helper for capybara feature specs
+    require "barsoom_utils/feature_toggle"     #  Convenient way of hiding/showing a feature.
 
 ## Developing
 
@@ -35,7 +36,7 @@ Running tests:
 
 1. Fork it ( https://github.com/barsoom/barsoom_utils/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
+3. Commit your changes (`git commit -am "Add some feature"`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 

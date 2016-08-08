@@ -1,0 +1,5 @@
+docker_services:
+  redis:
+    image: "redis:2.8"
+    options: "--publish 6379 -v $DATABASE_ROOT/auctionet/redis:/data"
+    command: "redis-server --appendonly yes"
