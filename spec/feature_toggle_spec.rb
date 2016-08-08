@@ -1,5 +1,5 @@
 require "spec_helper"
-require "feature_toggle"
+require "barsoom_utils/feature_toggle"
 
 describe BarsoomUtils::FeatureToggle, ".turn_on" do
   it "sets the feature as not disabled" do
