@@ -2,18 +2,18 @@ PATH
   remote: .
   specs:
     barsoom_utils (0.1.0)
-      attr_extras
-      lolcat
-      redis
 
 GEM
   remote: https://rubygems.org/
   specs:
     attr_extras (4.5.0)
     diff-lcs (1.2.5)
+    httparty (0.14.0)
+      multi_xml (>= 0.5.2)
     lolcat (42.1.43)
       paint (~> 1.0.0)
       trollop (~> 2.1.2)
+    multi_xml (0.5.5)
     paint (1.0.1)
     rake (11.1.2)
     redis (3.3.0)
@@ -36,9 +36,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  attr_extras
   barsoom_utils!
   bundler (~> 1.6)
+  httparty
+  lolcat
   rake
+  redis
   rspec
 
 BUNDLED WITH
