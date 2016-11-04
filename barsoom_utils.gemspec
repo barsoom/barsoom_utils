@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "lolcat"
   spec.add_development_dependency "attr_extras"
   spec.add_development_dependency "redis"
+  spec.add_development_dependency "rails", "> 3"
 
   # Run time dependencies should not be specified here. You are unlikely to use all of BarsoomUtils in each project, so instead, add the gems that are needed in the project.
 end
