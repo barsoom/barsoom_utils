@@ -9,11 +9,17 @@ module BarsoomUtils
     def call
       return unless ENV["ENABLE_HEALTH_CHECKS"]
 
-      response = HTTParty.get("https://hchk.io/#{id}")
+      response = ping_healthcheck
 
-      unless response.code == 200
-        BarsoomUtils::ExceptionNotifier.message("Couldn't report to healthchecks.io, maybe the service is down?", "Check: #{id}")
-      end
+      raise "Bad response #{response.inspect}" if response.code != 200
+    rescue => ex
+      BarsoomUtils::ExceptionNotifier.message("Couldn't report to healthchecks.io, maybe the service is down?", "Check: #{id}, Error: #{ex.inspect}")
+    end
+
+    private
+
+    def ping_healthcheck
+      HTTParty.get("https://hchk.io/#{id}")
     end
   end
 end
