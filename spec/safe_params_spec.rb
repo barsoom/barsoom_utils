@@ -1,8 +1,8 @@
 require "spec_helper"
 require "barsoom_utils/safe_params"
 
-describe BarsoomUtils::SafeParams do
-  let(:class_with_safe_params) {
+describe BarsoomUtils::SafeParams, "#safe_params" do
+  let(:controller_or_view_class) {
     require "action_controller"
 
     Class.new(ActionController::Base) do
@@ -14,19 +14,19 @@ describe BarsoomUtils::SafeParams do
     end
   }
 
-  it "parameters will be permitted" do
-    foo = class_with_safe_params.new
-    foo.params = { foo: "" }
+  it "permits most parameters without having to explicitly declare them" do
+    controller_or_view = controller_or_view_class.new
+    controller_or_view.params = { foo: "" }
 
-    expect(foo.permitted_param?(:foo)).to be true
+    expect(controller_or_view.permitted_param?(:foo)).to be true
   end
 
-  it "does not except 'host', 'port' or 'protocol' as safe params" do
-    foo = class_with_safe_params.new
-    foo.params = { host: "", port: "", protocol: "" }
+  it "does not permit 'host', 'port' or 'protocol' as safe params" do
+    controller_or_view = controller_or_view_class.new
+    controller_or_view.params = { host: "", port: "", protocol: "" }
 
-    expect(foo.permitted_param?(:port)).to be false
-    expect(foo.permitted_param?(:host)).to be false
-    expect(foo.permitted_param?(:protocol)).to be false
+    expect(controller_or_view.permitted_param?(:port)).to be false
+    expect(controller_or_view.permitted_param?(:host)).to be false
+    expect(controller_or_view.permitted_param?(:protocol)).to be false
   end
 end
