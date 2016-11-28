@@ -11,7 +11,11 @@ module BarsoomUtils
 
       response = ping_healthcheck
 
-      raise "Bad response #{response.inspect}" if response.code != 200
+      if response.code != 200
+        raise "Bad response #{response.inspect}"
+      else
+        response
+      end
     rescue => ex
       BarsoomUtils::ExceptionNotifier.message("Couldn't report to healthchecks.io, maybe the service is down?", "Check: #{id}, Error: #{ex.inspect}")
     end
