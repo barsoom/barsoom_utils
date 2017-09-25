@@ -6,20 +6,32 @@ module BarsoomUtils
     # We (counter-intuitively, perhaps) store disabled toggles, so we can assume them to be enabled by default in dev, staging and tests.
     REDIS_KEY = "disabled_feature_toggles"
 
-    def self.on?(feature, controller_or_view = nil, redis: $redis)
+    def self.redis=(redis)
+      @redis = redis
+    end
+
+    def self.redis
+      @redis || $redis
+    end
+
+    def self.on?(feature, controller_or_view = nil, redis: self.redis)
       new(feature, controller_or_view: controller_or_view, redis: redis).on?
     end
 
-    def self.off?(feature, controller_or_view = nil, redis: $redis)
+    def self.off?(feature, controller_or_view = nil, redis: self.redis)
       new(feature, controller_or_view: controller_or_view, redis: redis).off?
     end
 
-    def self.turn_on(feature, redis: $redis)
+    def self.turn_on(feature, redis: self.redis)
       new(feature, redis: redis).turn_on
     end
 
-    def self.turn_off(feature, redis: $redis)
+    def self.turn_off(feature, redis: self.redis)
       new(feature, redis: redis).turn_off
+    end
+
+    def self.list
+      redis.smembers(REDIS_KEY).sort
     end
 
     pattr_initialize :feature_name, [ :controller_or_view, :redis ]
@@ -60,7 +72,7 @@ module BarsoomUtils
     end
 
     def redis
-      @redis || $redis
+      @redis || self.class.redis
     end
 
     def feature_name
