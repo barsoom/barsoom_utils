@@ -4,64 +4,47 @@ require "barsoom_utils/feature_toggle"
 describe BarsoomUtils::FeatureToggle, ".turn_on" do
   it "sets the feature as not disabled" do
     redis = double
-    expect(redis).to receive(:del).with(:feature_foo_disabled)
+    expect(redis).to receive(:srem).with("disabled_feature_toggles", "foo")
     BarsoomUtils::FeatureToggle.turn_on(:foo, redis: redis)
   end
 end
 
 describe BarsoomUtils::FeatureToggle, ".turn_off" do
-  it "sets the feature as always disabled" do
+  it "sets the feature as disabled" do
     redis = double
-    expect(redis).to receive(:set).with(:feature_foo_disabled, "disabled")
+    expect(redis).to receive(:sadd).with("disabled_feature_toggles", "foo")
     BarsoomUtils::FeatureToggle.turn_off(:foo, redis: redis)
   end
 end
 
-describe BarsoomUtils::FeatureToggle, "#on?, #off?, .on?, .off?" do
-  let(:redis) { double(exists: false) }
-  subject(:toggle) { BarsoomUtils::FeatureToggle.new(:foo, redis: redis) }
+describe BarsoomUtils::FeatureToggle, ".on?, .off?" do
+  let(:redis) { double(sismember: false) }
 
   context "by default" do
-    it "turned on" do
-      expect(BarsoomUtils::FeatureToggle.on?(:foo, redis: redis)).to eq(true)
-      expect(BarsoomUtils::FeatureToggle.off?(:foo, redis: redis)).to eq(false)
-
-      expect(BarsoomUtils::FeatureToggle.new(:foo, redis: redis).on?).to eq(true)
-      expect(BarsoomUtils::FeatureToggle.new(:foo, redis: redis).off?).to eq(false)
-    end
+    specify { expect(BarsoomUtils::FeatureToggle.on?(:foo, redis: redis)).to be true }
+    specify { expect(BarsoomUtils::FeatureToggle.off?(:foo, redis: redis)).to be false }
   end
 
-  context "when always disabled" do
+  context "when disabled" do
     before do
-      redis_disable_value
+      allow(redis).to receive(:sismember).with("disabled_feature_toggles", "foo").and_return(true)
     end
 
-    it "turned off" do
-      expect(BarsoomUtils::FeatureToggle.on?(:foo, redis: redis)).to eq(false)
-      expect(BarsoomUtils::FeatureToggle.off?(:foo, redis: redis)).to eq(true)
-
-      expect(BarsoomUtils::FeatureToggle.new(:foo, redis: redis).on?).to eq(false)
-      expect(BarsoomUtils::FeatureToggle.new(:foo, redis: redis).off?).to eq(true)
-    end
+    specify { expect(BarsoomUtils::FeatureToggle.on?(:foo, redis: redis)).to be false }
+    specify { expect(BarsoomUtils::FeatureToggle.off?(:foo, redis: redis)).to be true }
   end
 
   context "with a param override" do
     it "overrides the value in Redis" do
-      expect(BarsoomUtils::FeatureToggle.on?(:foo, redis: redis)).to eq(true)
+      expect(BarsoomUtils::FeatureToggle.on?(:foo, redis: redis)).to be true
 
       controller = double(params: { "ft_foo" => "false" })
-      expect(BarsoomUtils::FeatureToggle.on?(:foo, controller, redis: redis)).to eq(false)
-      expect(BarsoomUtils::FeatureToggle.off?(:foo, controller, redis: redis)).to eq(true)
+      expect(BarsoomUtils::FeatureToggle.on?(:foo, controller, redis: redis)).to be false
+      expect(BarsoomUtils::FeatureToggle.off?(:foo, controller, redis: redis)).to be true
 
       controller = double(params: { "ft_foo" => "true" })
-      expect(BarsoomUtils::FeatureToggle.on?(:foo, controller, redis: redis)).to eq(true)
-      expect(BarsoomUtils::FeatureToggle.off?(:foo, controller, redis: redis)).to eq(false)
+      expect(BarsoomUtils::FeatureToggle.on?(:foo, controller, redis: redis)).to be true
+      expect(BarsoomUtils::FeatureToggle.off?(:foo, controller, redis: redis)).to be false
     end
-  end
-
-  private
-
-  def redis_disable_value
-    allow(redis).to receive(:exists).with(:feature_foo_disabled).and_return(true)
   end
 end
