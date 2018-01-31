@@ -27,6 +27,11 @@ List of utils:
     require "barsoom_utils/feature_toggle"     #  Convenient way of hiding/showing a feature.
     require "barsoom_utils/ping_health_check"  #  Report running of background jobs to healthchecks.io. NOTE: You need to set the env ENABLE_HEALTH_CHECKS=true to enable reporting (only set it in production).
 
+We also have some shared configuration. To use our Rubocop configuration, add this to the beginning of your `.rubocop.yml`:
+
+    inherit_gem:
+      barsoom_utils: shared_rubocop.yml
+
 ## Developing
 
 Running tests:

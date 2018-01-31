@@ -1,0 +1,108 @@
+# Configuration for the Rubocop code linting tool. See README.
+
+AllCops:
+  DisabledByDefault: true
+  Exclude:
+    - db/schema.rb
+    - vendor/**/*
+    - node_modules/**/*
+  DisplayStyleGuide: true
+
+# Allow:
+#
+#     foo.
+#       bar
+#
+# Disallow:
+#
+#     foo
+#       .bar
+#
+# Not in our styleguide, but it's what we've done for the most part.
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+# Allow: "foo"
+# Disallow: 'foo'
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  StyleGuide: https://github.com/barsoom/devbook/tree/master/styleguide#double-quote-strings-unless-the-string-contains-double-quotes
+
+# Require a comma after the last item in a multi-line hash or array.
+#
+# The "consistent_comma" setting allows
+#
+#     [
+#       1, 2,
+#       3,
+#     ]
+#
+# Whereas the "comma" setting seems to not want the comma after 3 if 1 and 2 were on the same line.
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+  StyleGuide: https://github.com/barsoom/devbook/tree/master/styleguide#add-commas-to-the-end-of-multiline-lists-and-hashes
+
+# Allow:
+#
+#     list.map { |x| x }
+#
+# Disallow:
+#
+#     list.map{ |x| x }
+#
+# Not in our styleguide, but it's what we've done for the most part.
+Layout/SpaceBeforeBlockBraces:
+  Enabled: true
+
+# Allow:
+#
+#     list.map {|x| x }
+#
+# Disallow:
+#
+#     list.map {|x| x }
+#
+# Not in our styleguide, but it's what we've done for the most part.
+Layout/SpaceInsideBlockBraces:
+  Enabled: true
+
+# Allow:
+#
+#     { a: 1 }
+#
+# Disallow:
+#
+#     {a: 1}
+#
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+  StyleGuide: https://github.com/barsoom/devbook/tree/master/styleguide#whitespace-in-arrays-and-hashes
+
+# Allow:
+#
+#     [ 1 ]
+#
+# Disallow:
+#
+#     [1]
+#
+Layout/SpaceInsideArrayLiteralBrackets:
+  EnforcedStyle: space
+  StyleGuide: https://github.com/barsoom/devbook/tree/master/styleguide#whitespace-in-arrays-and-hashes
+
+# Allow:
+#
+#     "foo" + 1 * 2 / 3**4
+#
+# Disallow:
+#
+#     "foo"+1*2/3 ** 4
+#
+# Not in our styleguide, but it's what we've done for the most part.
+Layout/SpaceAroundOperators:
+  Enabled: true
+
+# Disallow trailing whitespace.
+Layout/TrailingWhitespace:
+  Enabled: true
+  StyleGuide: https://github.com/barsoom/devbook/tree/master/styleguide#avoid-trailing-whitespace
