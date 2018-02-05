@@ -4,7 +4,6 @@ AllCops:
   DisabledByDefault: true
   Exclude:
     - db/schema.rb
-    - db/migrate/*
     - vendor/**/*
     - node_modules/**/*
   DisplayStyleGuide: true
