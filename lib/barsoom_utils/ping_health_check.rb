@@ -12,7 +12,7 @@ module BarsoomUtils
       response = ping_healthcheck
 
       if response.code != 200
-        raise "Bad response #{response.inspect}"
+        raise "Bad response, CF-header: #{response.headers["CF-RAY"]}, response body: #{response.inspect}"
       else
         response
       end
