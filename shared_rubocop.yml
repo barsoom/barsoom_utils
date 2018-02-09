@@ -2,11 +2,13 @@
 
 AllCops:
   DisabledByDefault: true
+  DisplayStyleGuide: true
+
+  # NOTE: Keep in sync with: https://github.com/barsoom/auctionet/blob/master/.githooks/post-commit
   Exclude:
     - db/schema.rb
     - vendor/**/*
     - node_modules/**/*
-  DisplayStyleGuide: true
 
 # Allow:
 #
