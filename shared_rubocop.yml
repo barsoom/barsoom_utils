@@ -40,7 +40,10 @@ Style/StringLiterals:
 #     ]
 #
 # Whereas the "comma" setting seems to not want the comma after 3 if 1 and 2 were on the same line.
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+  StyleGuide: https://github.com/barsoom/devbook/tree/master/styleguide#add-commas-to-the-end-of-multiline-lists-and-hashes
+Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma
   StyleGuide: https://github.com/barsoom/devbook/tree/master/styleguide#add-commas-to-the-end-of-multiline-lists-and-hashes
 
