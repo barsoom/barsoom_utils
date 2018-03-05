@@ -111,3 +111,7 @@ Layout/SpaceAroundOperators:
 Layout/TrailingWhitespace:
   Enabled: true
   StyleGuide: https://github.com/barsoom/devbook/tree/master/styleguide#avoid-trailing-whitespace
+
+# `BigDecimal.new` is deprecated on Ruby 2.5 in favour of `BigDecimal()`.
+Lint/BigDecimalNew:
+  Enabled: true
