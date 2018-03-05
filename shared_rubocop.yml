@@ -115,3 +115,7 @@ Layout/TrailingWhitespace:
 # `BigDecimal.new` is deprecated on Ruby 2.5 in favour of `BigDecimal()`.
 Lint/BigDecimalNew:
   Enabled: true
+
+Style/EmptyLineAfterGuardClause:
+  Enabled: true
+  StyleGuide: https://github.com/barsoom/devbook/tree/master/styleguide#put-a-blank-line-below-guard-statements
