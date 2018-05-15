@@ -116,6 +116,6 @@ Layout/TrailingWhitespace:
 Lint/BigDecimalNew:
   Enabled: true
 
-Style/EmptyLineAfterGuardClause:
+Layout/EmptyLineAfterGuardClause:
   Enabled: true
   StyleGuide: https://github.com/barsoom/devbook/tree/master/styleguide#put-a-blank-line-below-guard-statements
