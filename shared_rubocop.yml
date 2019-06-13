@@ -119,3 +119,15 @@ Lint/BigDecimalNew:
 Layout/EmptyLineAfterGuardClause:
   Enabled: true
   StyleGuide: https://github.com/barsoom/devbook/tree/master/styleguide#put-a-blank-line-below-guard-statements
+
+# Allow:
+#
+#     Date.new(2019, 1, 2)
+#
+# Disallow:
+#
+#     Date.new(2019,1,2)
+#
+# Not in our styleguide, but it's what we've done for the most part.
+Layout/SpaceAfterComma:
+  Enabled: true
