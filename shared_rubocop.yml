@@ -139,4 +139,5 @@ Style/StabbyLambdaParentheses:
   
 # Not in our styleguide, but it's what we've done for the most part. And it ensures "rubocop --auto-correct" doesn't make the StabbyLambdaParentheses rule add in unconventional-to-us spaces.
 Style/SpaceInLambdaLiteral:
+  Enabled: true
   EnforcedStyle: require_no_space
