@@ -23,7 +23,7 @@ describe BarsoomUtils::ExceptionNotifier, ".notify" do
     expect(Honeybadger).not_to receive(:notify)
 
     expect {
-      BarsoomUtils::ExceptionNotifier.notify(foo: "bar")
+      BarsoomUtils::ExceptionNotifier.notify({ foo: "bar" })
     }.to raise_error(/Expected an exception but got:.*foo.*bar/)
   end
 end
