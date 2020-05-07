@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "barsoom_utils/ping_health_check"
 
 RSpec.describe BarsoomUtils::PingHealthCheck, ".call" do

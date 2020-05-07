@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "barsoom_utils/spec/debug_helpers"
 
 RSpec.describe BarsoomUtils::Spec::DebugHelpers do

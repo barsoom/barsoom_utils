@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "barsoom_utils/feature_toggle"
 
 RSpec.describe BarsoomUtils::FeatureToggle, ".turn_on" do
