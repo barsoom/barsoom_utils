@@ -1,7 +1,6 @@
-require "spec_helper"
 require "barsoom_utils/exception_notifier"
 
-describe BarsoomUtils::ExceptionNotifier, ".notify" do
+RSpec.describe BarsoomUtils::ExceptionNotifier, ".notify" do
   before do
     stub_const("Honeybadger", double)
   end
@@ -28,7 +27,7 @@ describe BarsoomUtils::ExceptionNotifier, ".notify" do
   end
 end
 
-describe BarsoomUtils::ExceptionNotifier, ".message" do
+RSpec.describe BarsoomUtils::ExceptionNotifier, ".message" do
   before do
     stub_const("Honeybadger", double)
   end

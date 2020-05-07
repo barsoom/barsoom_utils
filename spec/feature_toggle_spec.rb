@@ -1,7 +1,6 @@
-require "spec_helper"
 require "barsoom_utils/feature_toggle"
 
-describe BarsoomUtils::FeatureToggle, ".turn_on" do
+RSpec.describe BarsoomUtils::FeatureToggle, ".turn_on" do
   it "sets the feature as not disabled" do
     redis = double
     expect(redis).to receive(:srem).with("disabled_feature_toggles", "foo")
@@ -9,7 +8,7 @@ describe BarsoomUtils::FeatureToggle, ".turn_on" do
   end
 end
 
-describe BarsoomUtils::FeatureToggle, ".turn_off" do
+RSpec.describe BarsoomUtils::FeatureToggle, ".turn_off" do
   it "sets the feature as disabled" do
     redis = double
     expect(redis).to receive(:sadd).with("disabled_feature_toggles", "foo")
@@ -17,7 +16,7 @@ describe BarsoomUtils::FeatureToggle, ".turn_off" do
   end
 end
 
-describe BarsoomUtils::FeatureToggle, ".on?, .off?" do
+RSpec.describe BarsoomUtils::FeatureToggle, ".on?, .off?" do
   let(:redis) { double(sismember: false) }
 
   context "by default" do
