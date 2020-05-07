@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "httparty"
 require "attr_extras"
 require "barsoom_utils/exception_notifier"
