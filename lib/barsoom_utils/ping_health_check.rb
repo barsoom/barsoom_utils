@@ -12,7 +12,10 @@ module BarsoomUtils
       response = ping_healthcheck
 
       if response.code != 200
-        raise "Bad response, CF-header: #{response.headers["CF-RAY"]}, response body: #{response.inspect}"
+        # "The presence of the cf-request-id header in the response confirms
+        # the request was proxied through Cloudflare"
+        #   https://support.cloudflare.com/hc/en-us/articles/203118044-Gathering-information-for-troubleshooting-sites
+        raise "Bad response, cf-request-id header: #{response.headers["cf-request-id"]}, response body: #{response.inspect}"
       else
         response
       end
