@@ -11,17 +11,16 @@ AllCops:
 
 # Allow:
 #
-#     foo.
-#       bar
-#
-# Disallow:
-#
 #     foo
 #       .bar
 #
-# Not in our styleguide, but it's what we've done for the most part.
+# Disallow:
+#
+#     foo.
+#       bar
+#
 Layout/DotPosition:
-  EnforcedStyle: trailing
+  EnforcedStyle: leading
 
 # Allow: "foo"
 # Disallow: 'foo'
