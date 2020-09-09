@@ -138,7 +138,7 @@ Style/StabbyLambdaParentheses:
   Enabled: true
   EnforcedStyle: require_parentheses
   StyleGuide: https://github.com/barsoom/devbook/tree/master/styleguide#lambdas-should-stab-their-arguments
-  
+
 # Not in our styleguide, but it's what we've done for the most part. And it ensures "rubocop --auto-correct" doesn't make the StabbyLambdaParentheses rule add in unconventional-to-us spaces.
 Layout/SpaceInLambdaLiteral:
   Enabled: true
