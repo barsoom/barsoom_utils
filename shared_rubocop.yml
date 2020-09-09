@@ -9,6 +9,10 @@ AllCops:
     - vendor/**/*
     - node_modules/**/*
 
+# Enable all Security cops
+Security:
+  Enable: true
+
 # Allow:
 #
 #     foo
