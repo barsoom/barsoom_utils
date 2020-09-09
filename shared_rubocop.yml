@@ -11,7 +11,7 @@ AllCops:
 
 # Enable all Security cops
 Security:
-  Enable: true
+  Enabled: true
 
 # Allow:
 #
