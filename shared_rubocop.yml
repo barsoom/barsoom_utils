@@ -143,3 +143,6 @@ Style/StabbyLambdaParentheses:
 Layout/SpaceInLambdaLiteral:
   Enabled: true
   EnforcedStyle: require_no_space
+
+Lint/RaiseException:
+  Enabled: true
