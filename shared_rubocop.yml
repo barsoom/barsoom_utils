@@ -134,6 +134,9 @@ Layout/EmptyLineAfterGuardClause:
 Layout/SpaceAfterComma:
   Enabled: true
 
+Style/NumericLiterals:
+  Enabled: true
+
 Style/StabbyLambdaParentheses:
   Enabled: true
   EnforcedStyle: require_parentheses
