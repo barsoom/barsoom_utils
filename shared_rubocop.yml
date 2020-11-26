@@ -150,3 +150,7 @@ Layout/SpaceInLambdaLiteral:
 
 Lint/RaiseException:
   Enabled: true
+
+# Skip redundant "begin"/"end" at the top level of method definitions or blocks.
+Style/RedundantBegin:
+  Enabled: true
