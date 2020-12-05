@@ -2,11 +2,11 @@
 require "barsoom_utils/exception_notifier"
 
 RSpec.describe BarsoomUtils::ExceptionNotifier do
-  describe ".notify" do
-    before do
-      stub_const("Honeybadger", double)
-    end
+  before do
+    stub_const("Honeybadger", double)
+  end
 
+  describe ".notify" do
     it "passes an exception to Honeybadger" do
       ex = StandardError.new("boom")
       expect(Honeybadger).to receive(:notify).with(ex)
@@ -30,10 +30,6 @@ RSpec.describe BarsoomUtils::ExceptionNotifier do
   end
 
   describe ".message" do
-    before do
-      stub_const("Honeybadger", double)
-    end
-
     it "passes a message to Honeybadger" do
       expect(Honeybadger).to receive(:notify).with(
         error_class: "Boom!",
