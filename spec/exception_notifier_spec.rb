@@ -60,4 +60,21 @@ RSpec.describe BarsoomUtils::ExceptionNotifier do
       BarsoomUtils::ExceptionNotifier.message("Boom!", foo: "bar")
     end
   end
+
+  describe ".run_with_context" do
+    it "passes an exception to Honeybadger, with context" do
+      ex = StandardError.new("boom")
+      expect(Honeybadger).to receive(:context).with({ ctx: "Yes, context" })
+      expect(Honeybadger).to receive(:notify).with(ex)
+      expect {
+        BarsoomUtils::ExceptionNotifier.run_with_context({ ctx: "Yes, context" }) {
+          raise ex
+        }
+      }.to raise_error /boom/
+    end
+  end
+
+  describe ".developers_working_on_this_feature_are_responsible_for_errors_until" do
+
+  end
 end

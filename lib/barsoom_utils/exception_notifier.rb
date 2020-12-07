@@ -38,5 +38,30 @@ module BarsoomUtils
         context: context.to_h,
       )
     end
+
+    # Wrap this around code to add context when reporting errors. Keep in
+    # mind that the error will be reported to Honeybadger twice when you use this.
+    #
+    # We could work around that later if it becomes annoying by wrapping
+    # the re-raised error in a type of error we ignore in Honeybadger config.
+    def self.run_with_context(context, &block)
+      block.call
+    rescue => ex
+      notify(ex, context: context)
+      raise
+    end
+
+    # While developing a feature we'd like the feature developers to be responsible for any errors that occur.
+    # Wrapping the new code with this tags the errors as "wip" in order to hide dem from the dashboard.
+    def self.developers_working_on_this_feature_are_responsible_for_errors_until(expire_on, &block)
+      block.call
+    rescue => ex
+      FIXME "#{expire_on}: WIP error-handling code needs to be removed!"
+      notify(ex, context: { tags: "wip" })
+
+      unless (defined?(Rails) && Rails.env.production?)
+        raise ex
+      end
+    end
   end
 end
