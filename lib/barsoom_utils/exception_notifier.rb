@@ -11,11 +11,7 @@ module BarsoomUtils
         raise "Expected an exception but got: #{exception.inspect}"
       end
 
-      if context.any?
-        Honeybadger.context(context)
-      end
-
-      Honeybadger.notify(exception)
+      Honeybadger.notify(exception, context: context)
     end
 
     def self.message(message, details_or_context = nil, context_or_nothing = nil)
@@ -37,6 +33,30 @@ module BarsoomUtils
         error_message: details.to_s,
         context: context.to_h,
       )
+    end
+
+    # Wrap this around code to add context when reporting errors.
+    def self.run_with_context(context, &block)
+      # The load/dump achieves a "deep dup" without the "deep dep" of Active Support 🥁
+      old_context = Marshal.load(Marshal.dump(Honeybadger.get_context))
+
+      Honeybadger.context(context)
+      block.call
+    ensure
+      Honeybadger.context.clear!
+      Honeybadger.context(old_context)
+    end
+
+    # While developing a feature we'd like the feature developers to be responsible for any errors that occur.
+    # Wrapping the new code with this tags the errors as "wip" in order to hide them from the dashboard.
+    def self.developers_working_on_this_feature_are_responsible_for_errors_until(expire_on, &block)
+      block.call
+    rescue => ex
+      FIXME "#{expire_on}: WIP error-handling code needs to be removed!"
+      notify(ex, context: { tags: "wip" })
+
+      is_rails_production = defined?(Rails) && Rails.env.production?
+      raise unless is_rails_production
     end
   end
 end
