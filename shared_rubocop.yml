@@ -154,3 +154,14 @@ Lint/RaiseException:
 # Skip redundant "begin"/"end" at the top level of method definitions or blocks.
 Style/RedundantBegin:
   Enabled: true
+
+# Allow:
+#
+#     foo.bar
+#
+# Disallow:
+#
+#     foo.bar()
+#
+Style/MethodCallWithoutArgsParentheses:
+  Enabled: true
