@@ -3,7 +3,7 @@
 AllCops:
   DisabledByDefault: true
   DisplayStyleGuide: true
-
+  SuggestExtensions: false
   Exclude:
     - db/schema.rb
     - vendor/**/*
