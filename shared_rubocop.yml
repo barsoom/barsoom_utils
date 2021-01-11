@@ -155,6 +155,17 @@ Lint/RaiseException:
 Style/RedundantBegin:
   Enabled: true
 
+# Allow:
+#
+#     foo.bar
+#
+# Disallow:
+#
+#     foo.bar()
+#
+Style/MethodCallWithoutArgsParentheses:
+  Enabled: true
+
 # Warn about "too many positional arguments in the parameter list" when more than 5.
 # Warn about "too many positional arguments with optional values" when more than 3.
 Metrics/ParameterLists:
