@@ -166,6 +166,11 @@ Style/RedundantBegin:
 Style/MethodCallWithoutArgsParentheses:
   Enabled: true
 
+# https://docs.rubocop.org/rubocop/cops_style.html#enforcedstyleformultiline-comma
+Style/TrailingCommaInArguments:
+  Enabled: true
+  EnforcedStyleForMultiline: comma
+
 # Warn about "too many positional arguments in the parameter list" when more than 5.
 # Warn about "too many positional arguments with optional values" when more than 3.
 Metrics/ParameterLists:
