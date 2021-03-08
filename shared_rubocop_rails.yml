@@ -1,0 +1,4 @@
+# Configuration for the RuboCop Rails extension. See README.
+
+Rails/SaveBang:
+  Enabled: true
