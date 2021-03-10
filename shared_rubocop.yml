@@ -181,3 +181,7 @@ Metrics/ParameterLists:
   CountKeywordArgs: false
   Max: 5
   MaxOptionalParameters: 3
+
+# https://docs.rubocop.org/rubocop/cops_lint.html#lintparenthesesasgroupedexpression
+Lint/ParenthesesAsGroupedExpression:
+  Enabled: true
