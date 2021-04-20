@@ -9,6 +9,7 @@ AllCops:
     - vendor/**/*
     - node_modules/**/*
     - tmp/**/*
+    - deploy/tmp/**/*
 
 # Enable all Security cops
 Security:
