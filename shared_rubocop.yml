@@ -186,3 +186,7 @@ Metrics/ParameterLists:
 # https://docs.rubocop.org/rubocop/cops_lint.html#lintparenthesesasgroupedexpression
 Lint/ParenthesesAsGroupedExpression:
   Enabled: true
+
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutindentationwidth
+Layout/IndentationWidth:
+  Enabled: true
