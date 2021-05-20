@@ -190,3 +190,7 @@ Lint/ParenthesesAsGroupedExpression:
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutindentationwidth
 Layout/IndentationWidth:
   Enabled: true
+
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutindentationconsistency
+Layout/IndentationConsistency:
+  Enabled: true
