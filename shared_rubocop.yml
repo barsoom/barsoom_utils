@@ -197,6 +197,7 @@ Layout/IndentationConsistency:
 
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutclassstructure
 # https://github.com/barsoom/devbook/tree/master/styleguide#use-a-consistent-class-layout
+# AutoCorrect: false because it has a tendency to make private delegates public, and it messes up whitespace
 Layout/ClassStructure:
   Enabled: true
   AutoCorrect: false
