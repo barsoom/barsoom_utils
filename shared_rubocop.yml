@@ -34,6 +34,10 @@ Style/StringLiterals:
   EnforcedStyle: double_quotes
   StyleGuide: https://github.com/barsoom/devbook/tree/master/styleguide#double-quote-strings-unless-the-string-contains-double-quotes
 
+#https://docs.rubocop.org/rubocop/cops_style.html#stylequotedsymbols
+Style/QuotedSymbols:
+  EnforcedStyle: same_as_string_literals
+
 # Require a comma after the last item in a multi-line hash or array.
 #
 # The "consistent_comma" setting allows
