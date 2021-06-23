@@ -115,6 +115,11 @@ Layout/SpaceInsideArrayLiteralBrackets:
 Layout/SpaceAroundOperators:
   Enabled: true
 
+# bad: f( 3)
+# good: f(3)
+Layout/SpaceInsideParens:
+  Enabled: true
+
 # Disallow trailing whitespace.
 Layout/TrailingWhitespace:
   Enabled: true
