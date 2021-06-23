@@ -120,6 +120,12 @@ Layout/SpaceAroundOperators:
 Layout/SpaceInsideParens:
   Enabled: true
 
+# bad: "foo #{ var } bar"
+# good: "foo #{var} bar"
+Layout/SpaceInsideStringInterpolation:
+  Enabled: true
+
+
 # Disallow trailing whitespace.
 Layout/TrailingWhitespace:
   Enabled: true
