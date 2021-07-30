@@ -15,7 +15,7 @@ RSpec.describe BarsoomUtils::PingHealthCheck, ".call" do
   end
 
   it "includes CloudFlare request ID header information in failure message" do
-    expect(HTTParty).to receive(:get).with("https://hchk.io/foo").and_return(double(:response, code: 503, headers: { "cf-request-id" => "023aa754ae0000517ab8829200000001"}))
+    expect(HTTParty).to receive(:get).with("https://hchk.io/foo").and_return(double(:response, code: 503, headers: { "cf-request-id" => "023aa754ae0000517ab8829200000001" }))
     expect(BarsoomUtils::ExceptionNotifier).to receive(:message).with(anything, /cf-request-id header: 023aa754ae0000517ab8829200000001/)
 
     BarsoomUtils::PingHealthCheck.call("foo")
