@@ -27,6 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "redis"
   spec.add_development_dependency "honeybadger"
   spec.add_development_dependency "fixme"
+  spec.add_development_dependency "rubocop"
 
   # Run time dependencies should not be specified here. You are unlikely to use all of BarsoomUtils in each project, so instead, add the gems that are needed in the project.
 end
