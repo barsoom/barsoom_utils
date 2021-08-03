@@ -230,3 +230,8 @@ Layout/ClassStructure:
     - private_attribute_macros
     - private_delegate
     - private_methods
+
+# https://docs.rubocop.org/rubocop/cops_style.html#stylehashsyntax
+Style/HashSyntax:
+  Enabled: true
+  EnforcedStyle: ruby19
