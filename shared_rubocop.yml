@@ -235,3 +235,6 @@ Layout/ClassStructure:
 Style/HashSyntax:
   Enabled: true
   EnforcedStyle: ruby19
+
+Security/IoMethods: # new in 1.22
+  Enabled: true
