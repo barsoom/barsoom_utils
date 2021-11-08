@@ -137,6 +137,9 @@ Lint/BigDecimalNew:
 Lint/DuplicateMethods:
   Enabled: true
 
+Lint/DeprecatedClassMethods:
+  Enabled: true
+
 Layout/EmptyLineAfterGuardClause:
   Enabled: true
   StyleGuide: https://github.com/barsoom/devbook/tree/master/styleguide#put-a-blank-line-below-guard-statements
