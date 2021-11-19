@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors       = [ "Tomas Skogberg" ]
   spec.email         = [ "tomas.skogberg@gmail.com" ]
   spec.summary       = %q{Various helpful utils}
-  spec.homepage      = "http://barsoom.se"
+  spec.homepage      = "https://dev.auctionet.com/"
   spec.license       = "MIT"
   spec.metadata      = { "rubygems_mfa_required" => "true" }
 
