@@ -9,3 +9,5 @@
 
 # Ignore all tempfiles.
 /tmp
+
+Gemfile.lock
