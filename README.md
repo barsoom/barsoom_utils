@@ -4,6 +4,8 @@ Barsoom Utils is our toolbox for small classes that we share in most of our proj
 
 It's only intended for internal use, but it's public in case others find parts of it useful.
 
+This gem gets released automatically, with the build number appended to the version defined in `VERSION`.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -56,8 +58,6 @@ inherit_gem:
 Running tests:
 
     rake
-    
-To release a new version, just push and CI takes care of it.
 
 ## Contributing
 
