@@ -1,9 +1,8 @@
 # BarsoomUtils
 
-Barsoom Utils is our internal toolbox for small classes that we share in most of our projects.
+Barsoom Utils is our toolbox for small classes that we share in most of our projects.
 
-This gem is intentionally not released since it's for internal use, but we keep it open
-source since it might have some value for others.
+It's only intended for internal use, but it's public in case others find parts of it useful.
 
 ## Installation
 
@@ -57,6 +56,8 @@ inherit_gem:
 Running tests:
 
     rake
+    
+To release a new version, just push and CI takes care of it.
 
 ## Contributing
 
