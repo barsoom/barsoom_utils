@@ -245,3 +245,15 @@ Style/HashSyntax:
 
 Security/IoMethods: # new in 1.22
   Enabled: true
+
+# https://docs.rubocop.org/rubocop/cops_gemspec.html#gemspecduplicatedassignment
+Gemspec/DuplicatedAssignment:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop/cops_gemspec.html#gemspecordereddependencies
+Gemspec/OrderedDependencies:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop/cops_gemspec.html#gemspecrequiremfa
+Gemspec/RequireMFA:
+  Enabled: true
