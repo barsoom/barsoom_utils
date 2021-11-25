@@ -9,7 +9,7 @@ It's only intended for internal use, but it's public in case others find parts o
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "barsoom_utils", github: "barsoom/barsoom_utils"
+gem "barsoom_utils"
 ```
 
 And then execute:
