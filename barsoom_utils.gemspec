@@ -17,16 +17,5 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0")
   spec.require_paths = [ "lib" ]
 
-  spec.add_development_dependency "attr_extras"
-  spec.add_development_dependency "bundler"
-  spec.add_development_dependency "fixme"
-  spec.add_development_dependency "honeybadger"
-  spec.add_development_dependency "httparty"
-  spec.add_development_dependency "lolcat"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "redis"
-  spec.add_development_dependency "rspec"
-  spec.add_development_dependency "rubocop"
-
   # Run time dependencies should not be specified here. You are unlikely to use all of BarsoomUtils in each project, so instead, add the gems that are needed in the project.
 end
