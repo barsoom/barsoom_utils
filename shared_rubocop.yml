@@ -144,6 +144,12 @@ Layout/EmptyLineAfterGuardClause:
   Enabled: true
   StyleGuide: https://github.com/barsoom/devbook/tree/master/styleguide#put-a-blank-line-below-guard-statements
 
+Layout/ExtraSpacing:
+  Enabled: true
+  AllowForAlignment: true
+  AllowBeforeTrailingComments: true # Henrik likes this
+  ForceEqualSignAlignment: false
+
 # Allow:
 #
 #     Date.new(2019, 1, 2)
