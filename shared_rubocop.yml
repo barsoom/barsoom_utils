@@ -162,6 +162,9 @@ Layout/ExtraSpacing:
 Layout/SpaceAfterComma:
   Enabled: true
 
+Style/ParallelAssignment: # https://rubystyle.guide/#parallel-assignment
+  Enabled: true
+
 Style/NumericLiterals:
   Enabled: false
 
