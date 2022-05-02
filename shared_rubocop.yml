@@ -255,6 +255,9 @@ Style/HashSyntax:
 Security/IoMethods: # new in 1.22
   Enabled: true
 
+Security/CompoundHash: # new in 1.28
+  Enabled: true
+
 # https://docs.rubocop.org/rubocop/cops_gemspec.html#gemspecduplicatedassignment
 Gemspec/DuplicatedAssignment:
   Enabled: true
