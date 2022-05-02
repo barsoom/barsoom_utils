@@ -252,9 +252,6 @@ Style/HashSyntax:
   Enabled: true
   EnforcedStyle: ruby19
 
-Security/IoMethods: # new in 1.22
-  Enabled: true
-
 # https://docs.rubocop.org/rubocop/cops_gemspec.html#gemspecduplicatedassignment
 Gemspec/DuplicatedAssignment:
   Enabled: true
