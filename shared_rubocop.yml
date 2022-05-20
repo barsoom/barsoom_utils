@@ -10,6 +10,8 @@ AllCops:
     - node_modules/**/*
     - tmp/**/*
     - deploy/tmp/**/*
+  # Will only enable new cops for the subset of cops that are enabled. https://docs.rubocop.org/rubocop/versioning.html#pending-cops
+  NewCops: enable
 
 # Enable all Security cops
 Security:
