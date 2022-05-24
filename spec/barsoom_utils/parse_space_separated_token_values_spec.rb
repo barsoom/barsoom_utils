@@ -6,7 +6,7 @@ RSpec.describe BarsoomUtils::ParseSpaceSeparatedTokenValues do
   let(:token_name) { "API_TOKENS" }
 
   subject(:parsed_value) {
-    described_class.call(api_tokens_value, minimum_key_size: minimum_key_size, token_name: token_name)
+    described_class.call(token_name, minimum_key_size: minimum_key_size, data: { "API_TOKENS" => api_tokens_value })
   }
 
   context "with a valid set of tokens" do
