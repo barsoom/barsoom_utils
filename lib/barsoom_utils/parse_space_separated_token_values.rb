@@ -7,7 +7,7 @@ module BarsoomUtils
      # @param token_name [String] name of ENV key to look up
      # @param minimum_key_size [Integer] required size of each element
      # @param data [Hash] defaults to ENV
-     def initialize(token_name, minimum_key_size:, data: ENV)
+     def initialize(token_name, minimum_key_size:, data:)
        @value = data[token_name].to_s
        @token_name = token_name
        @minimum_key_size = minimum_key_size
