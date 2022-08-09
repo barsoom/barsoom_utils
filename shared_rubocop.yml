@@ -265,3 +265,7 @@ Gemspec/OrderedDependencies:
 # https://docs.rubocop.org/rubocop/cops_gemspec.html#gemspecrequiremfa
 Gemspec/RequireMFA:
   Enabled: true
+  
+# https://docs.rubocop.org/rubocop/cops_naming.html#namingblockforwarding
+Naming/BlockForwarding:
+  Enabled: true
