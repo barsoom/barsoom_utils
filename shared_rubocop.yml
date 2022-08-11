@@ -30,6 +30,11 @@ Security:
 Layout/DotPosition:
   EnforcedStyle: leading
 
+# Allow: def foo(...) = bar(...)
+# Disallow: def foo(*args, &) = bar(*args, &)
+Style/ArgumentsForwarding:
+  Enabled: true
+
 # Allow: "foo"
 # Disallow: 'foo'
 Style/StringLiterals:
