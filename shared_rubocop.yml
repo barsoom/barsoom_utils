@@ -31,7 +31,7 @@ Layout/DotPosition:
   EnforcedStyle: leading
 
 # Allow: def foo(...) = bar(...)
-# Disallow: def foo(*args, &) = bar(*args, &)
+# Disallow: def foo(*args, &block) = bar(*args, &block)
 Style/ArgumentsForwarding:
   Enabled: true
 
