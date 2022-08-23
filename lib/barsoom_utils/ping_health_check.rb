@@ -27,7 +27,7 @@ module BarsoomUtils
     private
 
     def ping_healthcheck
-      HTTParty.get("https://hchk.io/#{id}")
+      HTTParty.get("https://hc-ping.com/#{id}")
     end
   end
 end
