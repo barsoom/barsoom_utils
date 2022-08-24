@@ -37,12 +37,12 @@ Style/ArgumentsForwarding:
 
 # Allow e.g. `map` and disallow e.g. `collect`.
 Style/CollectionMethods:
-PreferredMethods:
-  collect: map
-  detect: find
-  filter: select
-  find_all: select
-  reduce: inject
+  PreferredMethods:
+    collect: map
+    detect: find
+    filter: select
+    find_all: select
+    reduce: inject
 
 # Allow: "foo"
 # Disallow: 'foo'
