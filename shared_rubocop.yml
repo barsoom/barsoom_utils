@@ -42,7 +42,7 @@ Style/CollectionMethods:
     detect: find
     filter: select
     find_all: select
-    reduce: inject
+    inject: reduce
 
 # Allow: "foo"
 # Disallow: 'foo'
