@@ -44,6 +44,10 @@ Style/CollectionMethods:
     find_all: select
     inject: reduce
 
+# Allow e.g. `numbers.map(&:to_s)` and disallow e.g. `numbers.map { _1.to_s }`.
+Style/SymbolProc:
+  Enabled: true
+
 # Allow: "foo"
 # Disallow: 'foo'
 Style/StringLiterals:
