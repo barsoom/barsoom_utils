@@ -1,3 +1,5 @@
 # Configuration for the RuboCop Rails extension. See README.
 
-# TODO: Add something useful!
+# Allow e.g. `list.compact_blank` and disallow `list.reject(&:blank)`.
+Rails/CompactBlank:
+  Enabled: true
