@@ -50,11 +50,19 @@ module BarsoomUtils
     end
 
     def turn_off
-      redis.sadd REDIS_KEY, feature_name
+      if respond_to?(:sadd?)
+        redis.sadd? REDIS_KEY, feature_name
+      else
+        redis.sadd REDIS_KEY, feature_name
+      end
     end
 
     def turn_on
-      redis.srem REDIS_KEY, feature_name
+      if redis.respond_to?(:srem?)
+        redis.srem? REDIS_KEY, feature_name
+      else
+        redis.srem REDIS_KEY, feature_name
+      end
     end
 
     private
