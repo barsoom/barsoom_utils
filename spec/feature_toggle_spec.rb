@@ -4,7 +4,7 @@ require "barsoom_utils/feature_toggle"
 RSpec.describe BarsoomUtils::FeatureToggle, ".turn_on" do
   it "sets the feature as not disabled" do
     redis = double
-    if Gem::Version.new(Redis::VERSION) <= "4.8.0"
+    if Gem::Version.new(Redis::VERSION) <= Gem::Version.new("4.8.0")
       expect(redis).to receive(:srem).with("disabled_feature_toggles", "foo")
     else
       expect(redis).to receive(:srem?).with("disabled_feature_toggles", "foo")
@@ -16,7 +16,7 @@ end
 RSpec.describe BarsoomUtils::FeatureToggle, ".turn_off" do
   it "sets the feature as disabled" do
     redis = double
-    if Gem::Version.new(Redis::VERSION) <= "4.8.0"
+    if Gem::Version.new(Redis::VERSION) <= Gem::Version.new("4.8.0")
       expect(redis).to receive(:sadd).with("disabled_feature_toggles", "foo")
     else
       expect(redis).to receive(:sadd?).with("disabled_feature_toggles", "foo")
