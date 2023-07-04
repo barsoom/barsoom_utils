@@ -44,6 +44,17 @@ Style/CollectionMethods:
     find_all: select
     inject: reduce
 
+# The default {} is not in our styleguide, but we need a default to use this cop: https://github.com/rubocop/rubocop/issues/12029
+# And we've mostly used {} consistently anyway, so we might as well enforce it.
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    'default': '{}'
+    '%w': '[]'
+    '%W': '[]'
+    '%i': '[]'
+    '%I': '[]'
+  StyleGuide: https://github.com/barsoom/devbook/tree/master/styleguide#use-square-brackets-for-w-and-friends
+
 # Allow e.g. `numbers.map(&:to_s)` and disallow e.g. `numbers.map { _1.to_s }`.
 Style/SymbolProc:
   Enabled: true
