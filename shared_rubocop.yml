@@ -44,14 +44,6 @@ Style/CollectionMethods:
     find_all: select
     inject: reduce
 
-Style/PercentLiteralDelimiters:
-  PreferredDelimiters:
-    '%w': '[]'
-    '%W': '[]'
-    '%i': '[]'
-    '%I': '[]'
-  StyleGuide: https://github.com/barsoom/devbook/tree/master/styleguide#use-square-brackets-for-w-and-friends
-
 # Allow e.g. `numbers.map(&:to_s)` and disallow e.g. `numbers.map { _1.to_s }`.
 Style/SymbolProc:
   Enabled: true
