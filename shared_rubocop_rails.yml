@@ -3,3 +3,7 @@
 # Allow e.g. `list.compact_blank` and disallow `list.reject(&:blank)`.
 Rails/CompactBlank:
   Enabled: true
+
+# Allow e.g. `String#end_with?` and disallow `String#ends_with?`.
+Rails/ActiveSupportAliases:
+  Enabled: true
