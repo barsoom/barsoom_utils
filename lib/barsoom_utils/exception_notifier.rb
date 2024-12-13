@@ -37,14 +37,7 @@ module BarsoomUtils
 
     # Wrap this around code to add context when reporting errors.
     def self.run_with_context(context, &block)
-      # The load/dump achieves a "deep dup" without the "deep dep" of Active Support 🥁
-      old_context = Marshal.load(Marshal.dump(Honeybadger.get_context))
-
-      Honeybadger.context(context)
-      block.call
-    ensure
-      Honeybadger.context.clear!
-      Honeybadger.context(old_context)
+      Honeybadger.context(context, &block)
     end
   end
 end
