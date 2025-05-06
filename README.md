@@ -27,7 +27,6 @@ List of utils:
 require "barsoom_utils/exception_notifier" #  Notify devs about an exception without necessarily letting it appear to the user as a 500 error.
 require "barsoom_utils/spec/debug_helpers" #  Add show_page helper for capybara feature specs
 require "barsoom_utils/feature_toggle"     #  Convenient way of hiding/showing a feature.
-require "barsoom_utils/ping_health_check"  #  Report running of background jobs to healthchecks.io. NOTE: You need to set the env ENABLE_HEALTH_CHECKS=true to enable reporting (only set it in production).
 ```
 
 We also have some shared configuration. To use our Rubocop configuration, add this to the beginning of your `.rubocop.yml`.
