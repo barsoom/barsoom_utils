@@ -260,11 +260,36 @@ Layout/IndentationWidth:
 Layout/IndentationConsistency:
   Enabled: true
 
+# The next four sort-of belong together, to autocorrect conditional assigns into the form we're happy with, which is:
+# myVar =
+#  if condition
+#    happy_path
+#  else
+#    other_path
+#  end
+#
+# It only forces 'if's to the next line, everything else is a free-for-all.
+
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutmultilineassignmentlayout
 Layout/MultilineAssignmentLayout:
   Enabled: true
   SupportedTypes:
     - if
+
+# Indent the first line of a multiline assignment (i.e. the line directly after the =) one step
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutassignmentindentation
+Layout/AssignmentIndentation:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutelsealignment
+# Have `else` on the same indent level as the keyword it belongs to
+Layout/ElseAlignment:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop/cops_layout.html#layoutendalignment
+# Have `end` on the same indent level. Doesn't touch `ends` that belong to a `begin` (There's Layout/BeginEndAlignment for that), or to a `def` (There's Layout/DefEndAlignment for that), so it just affects `end`s belonging to if/unless/while/untl etc.
+Layout/EndAlignment:
+  Enabled: true
 
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutclassstructure
 # https://github.com/barsoom/devbook/tree/master/styleguide#use-a-consistent-class-layout
