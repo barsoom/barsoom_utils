@@ -1,6 +1,7 @@
 # Configuration for the Rubocop code linting tool. See README.
 
 AllCops:
+  ActiveSupportExtensionsEnabled: true
   DisabledByDefault: true
   DisplayStyleGuide: true
   SuggestExtensions: false
