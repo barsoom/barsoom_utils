@@ -73,26 +73,4 @@ RSpec.describe BarsoomUtils::ExceptionNotifier do
       )
     end
   end
-
-  describe ".run_with_context" do
-    it "updates the context just within the block" do
-      allow(Honeybadger).to receive(:context).and_call_original
-      Honeybadger.context({ my_old_context: "hello" })
-
-      context_in_block = nil
-
-      expect {
-        BarsoomUtils::ExceptionNotifier.run_with_context({ my_new_context: "what up" }) do
-          context_in_block = Honeybadger.get_context
-          raise "boom"
-        end
-      }.to raise_error /boom/
-
-      # Adds the new context while running the code.
-      expect(context_in_block).to eq({ my_old_context: "hello", my_new_context: "what up" })
-
-      # Resets the old context, without keeping the new.
-      expect(Honeybadger.get_context).to eq({ my_old_context: "hello" })
-    end
-  end
 end

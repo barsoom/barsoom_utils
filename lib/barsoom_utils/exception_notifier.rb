@@ -34,10 +34,5 @@ module BarsoomUtils
         context: context.to_h,
       )
     end
-
-    # Wrap this around code to add context when reporting errors.
-    def self.run_with_context(context, &block)
-      Honeybadger.context(context, &block)
-    end
   end
 end
