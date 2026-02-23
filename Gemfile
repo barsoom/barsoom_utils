@@ -15,4 +15,5 @@ group :development, :test do
   gem "redis"
   gem "rspec"
   gem "rubocop"
+  gem "rubocop-rspec"  # For `expect_offense` test helpers.
 end
