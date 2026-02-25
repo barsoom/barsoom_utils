@@ -1,8 +1,5 @@
 # Configuration for the Rubocop code linting tool. See README.
 
-require:
-  - barsoom_utils/rubocop
-
 AllCops:
   ActiveSupportExtensionsEnabled: true
   DisabledByDefault: true
@@ -231,10 +228,10 @@ Style/RedundantBegin:
 Style/MethodCallWithoutArgsParentheses:
   Enabled: true
 
-# Replaces Style/TrailingCommaInArguments, which doesn't support our preferred style:
-# require trailing comma only when `)` is on its own line.
-Barsoom/TrailingCommaInArguments:
+# https://docs.rubocop.org/rubocop/cops_style.html#enforcedstyleformultiline-comma
+Style/TrailingCommaInArguments:
   Enabled: true
+  EnforcedStyleForMultiline: comma
 
 # https://docs.rubocop.org/rubocop/cops_style.html#stylereturnnilinpredicatemethoddefinition
 Style/ReturnNilInPredicateMethodDefinition:
