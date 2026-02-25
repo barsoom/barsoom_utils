@@ -231,7 +231,7 @@ Style/MethodCallWithoutArgsParentheses:
 # https://docs.rubocop.org/rubocop/cops_style.html#enforcedstyleformultiline-comma
 Style/TrailingCommaInArguments:
   Enabled: true
-  EnforcedStyleForMultiline: comma
+  EnforcedStyleForMultiline: diff_comma
 
 # https://docs.rubocop.org/rubocop/cops_style.html#stylereturnnilinpredicatemethoddefinition
 Style/ReturnNilInPredicateMethodDefinition:
