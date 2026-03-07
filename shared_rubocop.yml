@@ -275,7 +275,11 @@ Layout/IndentationConsistency:
 Layout/MultilineAssignmentLayout:
   Enabled: true
   SupportedTypes:
+    - case
+    - class
     - if
+    - kwbegin
+    - module
 
 # Indent the first line of a multiline assignment (i.e. the line directly after the =) one step
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutassignmentindentation
@@ -290,6 +294,12 @@ Layout/ElseAlignment:
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutendalignment
 # Have `end` on the same indent level. Doesn't touch `ends` that belong to a `begin` (There's Layout/BeginEndAlignment for that), or to a `def` (There's Layout/DefEndAlignment for that), so it just affects `end`s belonging to if/unless/while/untl etc.
 Layout/EndAlignment:
+  Enabled: true
+
+Layout/BeginEndAlignment:
+  Enabled: true
+
+Layout/RescueEnsureAlignment:
   Enabled: true
 
 # https://docs.rubocop.org/rubocop/cops_layout.html#layoutclassstructure
