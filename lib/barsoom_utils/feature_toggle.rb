@@ -11,9 +11,7 @@ module BarsoomUtils
       @redis = redis
     end
 
-    def self.redis
-      @redis || $redis
-    end
+    def self.redis = @redis || $redis
 
     def self.on?(feature, controller_or_view = nil, redis: self.redis)
       new(feature, controller_or_view: controller_or_view, redis: redis).on?
@@ -23,17 +21,9 @@ module BarsoomUtils
       new(feature, controller_or_view: controller_or_view, redis: redis).off?
     end
 
-    def self.turn_on(feature, redis: self.redis)
-      new(feature, redis: redis).turn_on
-    end
-
-    def self.turn_off(feature, redis: self.redis)
-      new(feature, redis: redis).turn_off
-    end
-
-    def self.list
-      redis.smembers(REDIS_KEY).sort
-    end
+    def self.turn_on(feature, redis: self.redis) = new(feature, redis: redis).turn_on
+    def self.turn_off(feature, redis: self.redis) = new(feature, redis: redis).turn_off
+    def self.list = redis.smembers(REDIS_KEY).sort
 
     pattr_initialize :feature_name, [ :controller_or_view, :redis ]
 
@@ -45,9 +35,7 @@ module BarsoomUtils
       end
     end
 
-    def off?
-      not on?
-    end
+    def off? = not on?
 
     def turn_off
       if redis.respond_to?(:sadd?)
@@ -76,16 +64,8 @@ module BarsoomUtils
       value == "true"
     end
 
-    def on_according_to_redis?
-      not redis.sismember(REDIS_KEY, feature_name)
-    end
-
-    def redis
-      @redis || self.class.redis
-    end
-
-    def feature_name
-      @feature_name.to_s
-    end
+    def on_according_to_redis? = not redis.sismember(REDIS_KEY, feature_name)
+    def redis = @redis || self.class.redis
+    def feature_name = @feature_name.to_s
   end
 end
