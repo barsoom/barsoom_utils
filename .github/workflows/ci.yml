@@ -45,7 +45,7 @@ jobs:
           mkdir -p $HOME/.gem
           touch $HOME/.gem/credentials
           chmod 0600 $HOME/.gem/credentials
-          printf -- "---\n:rubygems_api_key: ${RUBYGEMS_API_KEY}\n" > $HOME/.gem/credentials
+          printf -- '---\n:rubygems_api_key: %s\n' "$RUBYGEMS_API_KEY" > "$HOME/.gem/credentials"
           sed -i "1s/.*/&.${GITHUB_RUN_NUMBER}/" VERSION # Add build number to version
           gem build *.gemspec
           gem push *.gem
