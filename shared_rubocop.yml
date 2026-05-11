@@ -217,6 +217,11 @@ Lint/RaiseException:
 Style/RedundantBegin:
   Enabled: true
 
+# Disallow `return 1` where `1` would do.
+Style/RedundantReturn:
+  Enabled: true
+  AllowMultipleReturnValues: true
+
 # Allow:
 #
 #     foo.bar
