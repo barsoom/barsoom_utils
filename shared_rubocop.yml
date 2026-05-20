@@ -47,7 +47,7 @@ Style/CollectionMethods:
 
 # Allow (but don't enforce) single-line endless methods.
 #
-# Disallow multi-line endless methods::
+# Disallow multi-line endless methods:
 #
 #     def my_method = x.foo
 #                      .bar
