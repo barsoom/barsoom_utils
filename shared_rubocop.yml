@@ -54,7 +54,7 @@ Style/CollectionMethods:
 #                      .baz
 Style/EndlessMethod:
   Enabled: true
-  allow_single_line: true
+  EnforcedStyle: allow_single_line
 
 # The default {} is not in our styleguide, but we need a default to use this cop: https://github.com/rubocop/rubocop/issues/12029
 # And we've mostly used {} consistently anyway, so we might as well enforce it.
