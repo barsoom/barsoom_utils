@@ -45,6 +45,17 @@ Style/CollectionMethods:
     find_all: select
     inject: reduce
 
+# Allow (but don't enforce) single-line endless methods.
+#
+# Disallow multi-line endless methods::
+#
+#     def my_method = x.foo
+#                      .bar
+#                      .baz
+Style/EndlessMethod:
+  Enabled: true
+  allow_single_line: true
+
 # The default {} is not in our styleguide, but we need a default to use this cop: https://github.com/rubocop/rubocop/issues/12029
 # And we've mostly used {} consistently anyway, so we might as well enforce it.
 Style/PercentLiteralDelimiters:
