@@ -362,6 +362,10 @@ Style/HashSyntax:
   EnforcedStyle: ruby19
   EnforcedShorthandSyntax: always # https://docs.rubocop.org/rubocop/cops_style.html#enforcedshorthandsyntax_-always-stylehashsyntax
 
+Style/RescueStandardError:
+  Enabled: true
+  EnforcedStyle: implicit
+
 # https://docs.rubocop.org/rubocop/cops_gemspec.html#gemspecduplicatedassignment
 Gemspec/DuplicatedAssignment:
   Enabled: true
