@@ -11,7 +11,9 @@ module BarsoomUtils
         raise "Expected an exception but got: #{exception.inspect}"
       end
 
-      Honeybadger.notify(exception, context: context)
+      result = Honeybadger.notify(exception, context: context)
+      Sentry.capture_exception(exception, extra: context) if defined?(Sentry)
+      result
     end
 
     def self.message(message, details_or_context = nil, context_or_nothing = nil)
@@ -26,13 +28,18 @@ module BarsoomUtils
         context = {}
       end
 
-      details ||= "(no message)"
-
-      Honeybadger.notify(
+      result = Honeybadger.notify(
         error_class: message,
-        error_message: details.to_s,
+        error_message: (details || "(no message)").to_s,
         context: context.to_h,
       )
+
+      if defined?(Sentry)
+        title = details ? "#{message}: #{details}" : message.to_s
+        Sentry.capture_message(title, extra: context.to_h)
+      end
+
+      result
     end
   end
 end
