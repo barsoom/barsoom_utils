@@ -52,6 +52,29 @@ RSpec.describe BarsoomUtils::ExceptionNotifier do
         expect(Honeybadger).to have_received(:notify).with(ex, context: { foo: "bar" })
       end
     end
+
+    context "without Honeybadger" do
+      before { hide_const("Honeybadger") }
+
+      it "still notifies Sentry and raises nothing" do
+        BarsoomUtils::ExceptionNotifier.notify(ex, context: { foo: "bar" })
+
+        expect(Sentry).to have_received(:capture_exception).with(ex, extra: { foo: "bar" })
+      end
+    end
+
+    context "without either notifier" do
+      before do
+        hide_const("Honeybadger")
+        hide_const("Sentry")
+      end
+
+      it "raises" do
+        expect {
+          BarsoomUtils::ExceptionNotifier.notify(ex)
+        }.to raise_error(/neither Honeybadger nor Sentry/)
+      end
+    end
   end
 
   describe ".message" do
@@ -122,6 +145,29 @@ RSpec.describe BarsoomUtils::ExceptionNotifier do
           error_message: "Details!",
           context: { foo: "bar" },
         )
+      end
+    end
+
+    context "without Honeybadger" do
+      before { hide_const("Honeybadger") }
+
+      it "still notifies Sentry and raises nothing" do
+        BarsoomUtils::ExceptionNotifier.message("Boom!", "Details!", foo: "bar")
+
+        expect(Sentry).to have_received(:capture_message).with("Boom!: Details!", extra: { foo: "bar" })
+      end
+    end
+
+    context "without either notifier" do
+      before do
+        hide_const("Honeybadger")
+        hide_const("Sentry")
+      end
+
+      it "raises" do
+        expect {
+          BarsoomUtils::ExceptionNotifier.message("Boom!")
+        }.to raise_error(/neither Honeybadger nor Sentry/)
       end
     end
   end
