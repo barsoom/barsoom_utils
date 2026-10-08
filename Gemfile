@@ -8,7 +8,6 @@ group :development, :test do
   gem "attr_extras"
   gem "bundler"
   gem "fixme"
-  gem "honeybadger"
   gem "httparty"
   gem "lolcat"
   gem "rake"

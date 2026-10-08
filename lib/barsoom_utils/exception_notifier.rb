@@ -13,9 +13,7 @@ module BarsoomUtils
 
       ensure_notifier!
 
-      result = Honeybadger.notify(exception, context: context) if defined?(Honeybadger)
-      Sentry.capture_exception(exception, extra: context) if defined?(Sentry)
-      result
+      Sentry.capture_exception(exception, extra: context)
     end
 
     def self.message(message, details_or_context = nil, context_or_nothing = nil)
@@ -32,29 +30,17 @@ module BarsoomUtils
         context = {}
       end
 
-      if defined?(Honeybadger)
-        result = Honeybadger.notify(
-          error_class: message,
-          error_message: (details || "(no message)").to_s,
-          context: context.to_h,
-        )
-      end
-
-      if defined?(Sentry)
-        title = details ? "#{message}: #{details}" : message.to_s
-        Sentry.capture_message(title, extra: context.to_h)
-      end
-
-      result
+      title = details ? "#{message}: #{details}" : message.to_s
+      Sentry.capture_message(title, extra: context.to_h)
     end
 
     private
 
     private_class_method \
     def self.ensure_notifier!
-      return if defined?(Honeybadger) || defined?(Sentry)
+      return if defined?(Sentry)
 
-      raise "Cannot notify: neither Honeybadger nor Sentry is available."
+      raise "Cannot notify: Sentry is not available."
     end
   end
 end
