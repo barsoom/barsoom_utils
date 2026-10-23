@@ -390,3 +390,7 @@ Naming/BlockForwarding:
 # Only runs in projects that have attr_extras in their Gemfile.lock.
 Barsoom/AttrExtrasInitialize:
   Enabled: true
+
+# Allow e.g. `private_class_method \` before `def self.parse` and disallow `private_class_method :parse` further down.
+Barsoom/InlinePrivateClassMethod:
+  Enabled: true
