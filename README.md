@@ -50,6 +50,8 @@ inherit_gem:
     - shared_rubocop.yml
 ```
 
+`shared_rubocop.yml` also loads our custom cops, in `lib/rubocop/cop/barsoom`.
+
 ## Developing
 
 Running tests:

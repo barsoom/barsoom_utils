@@ -1,5 +1,9 @@
 # Configuration for the Rubocop code linting tool. See README.
 
+# Our custom cops, in lib/rubocop/cop/barsoom.
+require:
+  - barsoom_utils/rubocop
+
 AllCops:
   ActiveSupportExtensionsEnabled: true
   DisabledByDefault: true
@@ -380,4 +384,9 @@ Gemspec/RequireMFA:
   
 # https://docs.rubocop.org/rubocop/cops_naming.html#namingblockforwarding
 Naming/BlockForwarding:
+  Enabled: true
+
+# Allow e.g. `pattr_initialize :user` and disallow an `initialize` that only assigns `@user = user`.
+# Only runs in projects that have attr_extras in their Gemfile.lock.
+Barsoom/AttrExtrasInitialize:
   Enabled: true
