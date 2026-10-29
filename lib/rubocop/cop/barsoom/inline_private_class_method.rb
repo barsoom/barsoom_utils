@@ -4,6 +4,7 @@ module RuboCop
     module Barsoom
       # Checks for `private_class_method` listing class methods by name, when they're defined with `def self.` in the
       # same class body. Putting the modifier before each definition shows at a glance which class methods are private.
+      # An endless method takes the modifier on the same line; a multi-line one on the line above, with a backslash.
       #
       # Names not defined that way, e.g. `private_class_method :new`, are accepted. The offense is only corrected when
       # every listed name is defined in the class body.
@@ -12,16 +13,24 @@ module RuboCop
       #   # bad
       #   def self.parse(value) = Time.iso8601(value)
       #
-      #   private_class_method :parse
+      #   def self.verifier
+      #     Rails.application.message_verifier("cursor")
+      #   end
+      #
+      #   private_class_method :parse, :verifier
       #
       #   # good
+      #   private_class_method def self.parse(value) = Time.iso8601(value)
+      #
       #   private_class_method \
-      #   def self.parse(value) = Time.iso8601(value)
+      #   def self.verifier
+      #     Rails.application.message_verifier("cursor")
+      #   end
       class InlinePrivateClassMethod < Base
         include RangeHelp
         extend AutoCorrector
 
-        MSG = "Use `private_class_method \\` before each `def self.` instead of listing the methods by name."
+        MSG = "Use `private_class_method` before each `def self.` instead of listing the methods by name."
         RESTRICT_ON_SEND = %i[private_class_method].freeze
 
         def on_send(node)
@@ -36,7 +45,8 @@ module RuboCop
 
             names.each do |name|
               definition = definitions.fetch(name)
-              corrector.insert_before(definition, "private_class_method \\\n#{" " * definition.loc.column}")
+              line_break = definition.endless? ? "" : "\\\n#{" " * definition.loc.column}"
+              corrector.insert_before(definition, "private_class_method #{line_break}")
             end
             corrector.remove(removal_range(node))
           end
