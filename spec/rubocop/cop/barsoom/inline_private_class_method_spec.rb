@@ -4,7 +4,7 @@ require "rubocop_helper"
 RSpec.describe RuboCop::Cop::Barsoom::InlinePrivateClassMethod, :config do
   let(:ruby_version) { 3.4 }
 
-  it "registers an offense for listing class methods by name, and moves the modifier onto each definition" do
+  it "registers an offense for listing class methods by name, and moves the modifier onto each definition, on the same line for an endless method" do
     expect_offense(<<~RUBY)
       class Foo
         def self.call = parse
@@ -16,7 +16,7 @@ RSpec.describe RuboCop::Cop::Barsoom::InlinePrivateClassMethod, :config do
         def self.verifier = :verifier
 
         private_class_method :parse, :verifier
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use `private_class_method \\` before each `def self.` instead of listing the methods by name.
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use `private_class_method` before each `def self.` instead of listing the methods by name.
       end
     RUBY
 
@@ -29,8 +29,7 @@ RSpec.describe RuboCop::Cop::Barsoom::InlinePrivateClassMethod, :config do
           :parsed
         end
 
-        private_class_method \\
-        def self.verifier = :verifier
+        private_class_method def self.verifier = :verifier
       end
     RUBY
   end
@@ -43,7 +42,7 @@ RSpec.describe RuboCop::Cop::Barsoom::InlinePrivateClassMethod, :config do
         def self.parse = :parsed
 
         private_class_method :new, :parse
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use `private_class_method \\` before each `def self.` instead of listing the methods by name.
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use `private_class_method` before each `def self.` instead of listing the methods by name.
       end
     RUBY
 
