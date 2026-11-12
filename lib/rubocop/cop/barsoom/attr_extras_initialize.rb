@@ -19,8 +19,8 @@ module RuboCop
       #   pattr_initialize :user, [ :notify! ]
       class AttrExtrasInitialize < Base
         MSG = "Use attr_extras, e.g. `pattr_initialize`, instead of an `initialize` that only assigns its arguments."
-        SUPPORTED_ARGUMENT_TYPES = %i[arg kwarg kwoptarg].freeze
-        IMMUTABLE_DEFAULT_TYPES = %i[nil true false sym int float].freeze
+        SUPPORTED_ARGUMENT_TYPES = %i[ arg kwarg kwoptarg ].freeze
+        IMMUTABLE_DEFAULT_TYPES = %i[ nil true false sym int float ].freeze
 
         requires_gem "attr_extras"
 

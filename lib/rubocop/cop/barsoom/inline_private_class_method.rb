@@ -22,7 +22,7 @@ module RuboCop
         extend AutoCorrector
 
         MSG = "Use `private_class_method \\` before each `def self.` instead of listing the methods by name."
-        RESTRICT_ON_SEND = %i[private_class_method].freeze
+        RESTRICT_ON_SEND = %i[ private_class_method ].freeze
 
         def on_send(node)
           return if node.receiver || node.arguments.empty? || !node.arguments.all?(&:sym_type?)

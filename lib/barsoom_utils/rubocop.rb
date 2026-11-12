@@ -3,3 +3,4 @@
 require "rubocop"
 require_relative "../rubocop/cop/barsoom/attr_extras_initialize"
 require_relative "../rubocop/cop/barsoom/inline_private_class_method"
+require_relative "../rubocop/cop/barsoom/space_inside_percent_literal_delimiters"
