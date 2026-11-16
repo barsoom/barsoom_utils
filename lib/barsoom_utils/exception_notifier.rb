@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Notify devs about an exception without necessarily
 # letting it appear to the user as a 500 error.
 

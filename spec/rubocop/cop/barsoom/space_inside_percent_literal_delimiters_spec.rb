@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "rubocop_helper"
 
 RSpec.describe RuboCop::Cop::Barsoom::SpaceInsidePercentLiteralDelimiters, :config do

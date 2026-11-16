@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "barsoom_utils/exception_notifier"
 require "sentry-ruby"
 require "fixme"
